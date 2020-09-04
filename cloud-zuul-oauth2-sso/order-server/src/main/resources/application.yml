@@ -1,0 +1,22 @@
+server:
+  port: 8083
+spring:
+  profiles:
+    active: dev
+  application:
+    name: order-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    logfile:
+      external-file: logs/order/app.log

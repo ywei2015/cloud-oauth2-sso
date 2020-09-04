@@ -1,0 +1,46 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+security:
+  oauth2:
+    client:
+      client-id: gateway
+      client-secret: test123
+      access-token-uri: http://localhost:8080/oauth/token
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+    resource:
+      jwt:
+        key-uri: http://localhost:8080/oauth/token_key
+secure:
+  ignore:
+    urls: #配置权限白名单路径
+      - "/bootstrap/**"
+      - "/images/**"
+      - "/css/**"
+      - "/js/**"
+      - "/auth/oauth/token"
+      - "/actuator/**"
+      - "**.icon"
+zuul:
+  sensitive-headers: Cookie,Set-Cookie,Authorization #配置过滤敏感的请求头信息，设置为空就不会过滤
+  add-host-header: true #设置为true重定向是会添加host请求头
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    logfile:
+      external-file: logs/gateway/app.log
+    health:
+      show-details: always
