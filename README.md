@@ -13,6 +13,7 @@ appSecret暴露在客户端，所以cloud-gateway-oauth2-sso适合微信和APP�
 -oauth-server 关联数据库登陆认证 token权限管理 自定义登陆页面<br>
 -order-server 订单服务<br>
 -repertory-server 库存服务<br>
+-common 统一返回 统一异常处理<br>
 
 ## cloud-gateway-oauth2-sso
 主要采用 nacos注册中心 gateway服务网关<br>
