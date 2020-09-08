@@ -40,18 +40,10 @@ public class CommonResult<T> {
     /**
      * 失败返回结果
      * @param errorCode 错误码
-     */
-    public static <T> CommonResult<T> failed(IErrorCode errorCode) {
-        return new CommonResult<T>(errorCode.getCode(), errorCode.getMessage(), null);
-    }
-
-    /**
-     * 失败返回结果
-     * @param errorCode 错误码
      * @param message 错误信息
      */
-    public static <T> CommonResult<T> failed(IErrorCode errorCode, String message) {
-        return new CommonResult<T>(errorCode.getCode(), message, null);
+    public static <T> CommonResult<T> failed(Integer errorCode, String message) {
+        return new CommonResult<T>(errorCode, message, null);
     }
 
     /**
@@ -66,14 +58,14 @@ public class CommonResult<T> {
      * 失败返回结果
      */
     public static <T> CommonResult<T> failed() {
-        return failed(ResultCode.FAILED);
+        return failed(ResultCode.FAILED.getMessage());
     }
 
     /**
      * 参数验证失败返回结果
      */
     public static <T> CommonResult<T> validateFailed() {
-        return failed(ResultCode.VALIDATE_FAILED);
+        return failed(ResultCode.VALIDATE_FAILED.getMessage());
     }
 
     /**

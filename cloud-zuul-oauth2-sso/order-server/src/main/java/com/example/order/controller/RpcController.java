@@ -1,12 +1,12 @@
 package com.example.order.controller;
 
 import com.example.common.entity.Repertory;
+import com.example.common.exception.BaseException;
+import com.example.common.exception.ResponseEnum;
 import com.example.order.service.RpcService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,12 +17,18 @@ import java.util.List;
 @RequestMapping("/rpc")
 public class RpcController {
 
-	@Autowired
+	@Resource
 	private RpcService rpcService;
 
 	@GetMapping("/list")
 	public List<Repertory> list() {
 		return rpcService.listRepertory();
+	}
+
+	@GetMapping("/test/{userName}")
+	public String test(@PathVariable("userName") String userName, @RequestParam(required = false) String userId){
+		ResponseEnum.NOT_NULL.assertNotNull(userId,"userId");
+		return userName;
 	}
 
 }
