@@ -8,12 +8,12 @@ appSecret暴露在客户端，所以cloud-gateway-oauth2-sso适合微信和APP�
 
 ## cloud-zuul-oauth2-sso
 主要采用 nacos注册中心 zuul服务网关 openFegin实现RPC负载均衡熔断降级处理 springbootAdmin监控每个服务性能<br>
--admin-server 监控中心<br>
+-admin-server 监控中心 （已与网关整合，被监控服务不需要额外配置）<br>
 -gateway 网关负载均衡 整合oauth2.0+springbootSecurity+jwt实现单点登陆认证和权限鉴定<br>
 -oauth-server 关联数据库登陆认证 token权限管理 自定义登陆页面<br>
 -order-server 订单服务<br>
 -repertory-server 库存服务<br>
--common 统一返回 统一异常处理<br>
+-common 统一返回 统一异常处理 （基于自定义assert枚举类）<br>
 
 ## cloud-gateway-oauth2-sso
 主要采用 nacos注册中心 gateway服务网关<br>
