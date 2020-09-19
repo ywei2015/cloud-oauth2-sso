@@ -3,7 +3,7 @@
 不同的是cloud-zuul-oauth2-sso采用zuul网关和oauth2.0授权码模式而cloud-gateway-oauth2-sso采用gateway网关<br>
 和oauth2.0用户密码第三方授权模式。在权限方面cloud-zuul-oauth2-sso使用认证服务加载角色权限到token再于网关<br>
 服务解析出来，然后与当前路径做比对，cloud-gateway-oauth2-sso则是通过认证服务把权限资源加载到redis。<br>
-性能方面cloud-gateway-oauth2-sso使用webflux底层使用到了netty 做服务器具有更高性能和吞吐量<br>
+性能方面cloud-gateway-oauth2-sso使用gateway做网关webflux使用到了netty 做服务器具有更高性能和吞吐量<br>
 
 
 ## zuul-oauth2-sso
