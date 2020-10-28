@@ -1,9 +1,10 @@
 # cloud-oauth2-sso
-微服务框架下单点登陆与鉴权，两个项目均采用网关服务集成springSecurity+oauth2.0+jtw机制做单点登陆认证，<br>
-不同的是cloud-zuul-oauth2-sso采用zuul网关和oauth2.0授权码模式而cloud-gateway-oauth2-sso采用gateway网关<br>
-和oauth2.0用户密码第三方授权模式。在权限方面cloud-zuul-oauth2-sso使用认证服务加载角色权限到token再于网关<br>
-服务解析出来，然后与当前路径做比对，cloud-gateway-oauth2-sso则是通过认证服务把权限资源加载到redis。<br>
-性能方面cloud-gateway-oauth2-sso使用gateway做网关webflux使用到了netty 做服务器具有更高性能和吞吐量<br>
+微服务框架下单点登陆与权限控制，两个项目均采用网关服务集成springSecurity+oauth2.0+jwt机制，<br>
+不同的是登录认证方面cloud-zuul-oauth2-sso采用zuul网关和oauth2.0授权码模式，利用cookie和全局session实现<br>
+而cloud-gateway-oauth2-sso采用gateway网关和oauth2.0用户密码第三方授权模式,利用token实现。<br>
+在权限方面cloud-zuul-oauth2-sso使用认证服务加载角色权限数据到token再于网关服务解析出来，<br>
+cloud-gateway-oauth2-sso则是通过认证服务把权限资源加载到redis。<br>
+同时cloud-gateway-oauth2-sso使用gateway做网关webflux使用到了netty 做服务器具有更高性能和吞吐量<br>
 
 
 ## zuul-oauth2-sso
